@@ -16,6 +16,7 @@ return array(
     'App\\Exports\\ExportProdukMasuk' => $baseDir . '/app/Exports/ExportProdukMasuk.php',
     'App\\Exports\\ExportSales' => $baseDir . '/app/Exports/ExportSales.php',
     'App\\Exports\\ExportSuppliers' => $baseDir . '/app/Exports/ExportSuppliers.php',
+    'App\\Http\\Controllers\\ApiController' => $baseDir . '/app/Http/Controllers/ApiController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',

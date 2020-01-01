@@ -26,13 +26,13 @@ class ProductMasukController extends Controller
     public function index()
     {
         $products = Product::orderBy('nama','ASC')
-            ->get()
-            ->pluck('nama','id');
+            ->get();
+            // ->pluck('nama','product_number','id');
 
         $suppliers = Supplier::orderBy('nama','ASC')
             ->get()
             ->pluck('nama','id');
-
+        // return $products;
         $invoice_data = Product_Masuk::all();
         return view('product_masuk.index', compact('products','suppliers','invoice_data'));
     }
@@ -57,7 +57,6 @@ class ProductMasukController extends Controller
     {
         $this->validate($request, [
             'product_id'     => 'required',
-            'supplier_id'    => 'required',
             'qty'            => 'required',
             'tanggal'        => 'required'
         ]);
@@ -152,11 +151,12 @@ class ProductMasukController extends Controller
             ->addColumn('products_name', function ($product){
                 return $product->product->nama;
             })
-            ->addColumn('supplier_name', function ($product){
-                return $product->supplier->nama;
+            ->addColumn('products_number', function ($product){
+                return $product->product->product_number;
             })
             ->addColumn('action', function($product){
-                return '<a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i> Show</a> ' .
+                // return '<a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i> Show</a> ' .
+                return
                     '<a onclick="editForm('. $product->id .')" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a> ' .
                     '<a onclick="deleteData('. $product->id .')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Delete</a> ';
 
