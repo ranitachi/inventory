@@ -36,7 +36,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Products</th>
-                    <th>Supplier</th>
+                    {{-- <th>Supplier</th> --}}
                     <th>QTY</th>
                     <th>Tanggal Masuk</th>
                     <th></th>
@@ -161,7 +161,6 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'products_name', name: 'products_name'},
-                {data: 'supplier_name', name: 'supplier_name'},
                 {data: 'qty', name: 'qty'},
                 {data: 'tanggal', name: 'tanggal'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}

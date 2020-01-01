@@ -22,8 +22,9 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nama</th>
-                    <th>Harga</th>
+                    <th>Product Number</th>
+                    <th>Name</th>
+                    <th>Vendor</th>
                     <th>QTY</th>
                     <th>Image</th>
                     <th>Category</th>
@@ -70,8 +71,9 @@
             ajax: "{{ route('api.products') }}",
             columns: [
                 {data: 'id', name: 'id'},
+                {data: 'product_number', name: 'product_number'},
                 {data: 'nama', name: 'nama'},
-                {data: 'harga', name: 'harga'},
+                {data: 'vendor', name: 'vendor'},
                 {data: 'qty', name: 'qty'},
                 {data: 'show_photo', name: 'show_photo'},
                 {data: 'category_name', name: 'category_name'},

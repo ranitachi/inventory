@@ -31,7 +31,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Products</th>
-                    <th>Customer</th>
+                    {{-- <th>Customer</th> --}}
                     <th>QTY</th>
                     <th>Tanggal Pembelian</th>
                     <th></th>
@@ -160,7 +160,6 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'products_name', name: 'products_name'},
-                {data: 'customer_name', name: 'customer_name'},
                 {data: 'qty', name: 'qty'},
                 {data: 'tanggal', name: 'tanggal'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
