@@ -27,4 +27,33 @@ class ApiController extends Controller
                 'data'=>$data
             ]); 
     }
+
+    public function store_user(Request $request)
+    {
+        $nama=$request->nama;
+        $email=$request->email;
+        $telepon=$request->telepon;
+
+        $cek=User::where('email',$email)->first();
+        if(!$cek)
+        {
+            $insert=new User;
+            $insert->name=$nama;
+            $insert->email=$email;
+            $insert->telepon=$telepon;
+            $insert->role='staff';
+            $insert->password=bcrypt($telepon);
+            $insert->save();
+
+            return response()->json([
+                'status'=>200,
+                'data' => array('message'=>'Data Anda Berhasil Di Simpan')
+            ]);
+        }
+
+        return response()->json([
+                'status'=>404,
+                'data' => array('message'=>'Terjadi Kesalahan')
+            ]);
+    }
 }
