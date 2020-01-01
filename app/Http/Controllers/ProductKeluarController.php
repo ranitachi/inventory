@@ -57,7 +57,6 @@ class ProductKeluarController extends Controller
     {
         $this->validate($request, [
            'product_id'     => 'required',
-           'customer_id'    => 'required',
            'qty'            => 'required',
            'tanggal'           => 'required'
         ]);
@@ -152,11 +151,9 @@ class ProductKeluarController extends Controller
             ->addColumn('products_name', function ($product){
                 return $product->product->nama;
             })
-            ->addColumn('customer_name', function ($product){
-                return $product->customer->nama;
-            })
             ->addColumn('action', function($product){
-                return '<a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i> Show</a> ' .
+                // return '<a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i> Show</a> ' .
+                return
                     '<a onclick="editForm('. $product->id .')" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a> ' .
                     '<a onclick="deleteData('. $product->id .')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
             })

@@ -23,8 +23,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label >Price</label>
-                            <input type="text" class="form-control" id="harga" name="harga"   required>
+                            <label >Product Number</label>
+                            <input type="text" class="form-control" id="product_number" name="product_number"   required>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                        <div class="form-group">
+                            <label >Vendor</label>
+                            <input type="text" class="form-control" id="vendor" name="vendor"   required>
                             <span class="help-block with-errors"></span>
                         </div>
 

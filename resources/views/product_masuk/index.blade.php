@@ -35,8 +35,8 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Products</th>
-                    <th>Supplier</th>
+                    <th>Products Name</th>
+                    <th>Products Number</th>
                     <th>QTY</th>
                     <th>Tanggal Masuk</th>
                     <th></th>
@@ -48,11 +48,11 @@
         <!-- /.box-body -->
     </div>
 
-    <div class="box col-md-6">
+    {{-- <div class="box col-md-6">
 
         <div class="box-header">
             <h3 class="box-title">Export Invoice</h3>
-        </div>
+        </div> --}}
 
     {{--<div class="box-header">--}}
     {{--<a onclick="addForm()" class="btn btn-primary" >Add Products Out</a>--}}
@@ -61,13 +61,12 @@
     {{--</div>--}}
 
     <!-- /.box-header -->
-        <div class="box-body">
+        {{-- <div class="box-body">
             <table id="invoice" class="table table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Products</th>
-                    <th>Supplier</th>
+                    <th>Products Name</th>
                     <th>QTY</th>
                     <th>Tanggal Pembelian</th>
                     <th>Export Invoice</th>
@@ -78,7 +77,6 @@
                     <tbody>
                     <td>{{ $i->id }}</td>
                     <td>{{ $i->product->nama }}</td>
-                    <td>{{ $i->supplier->nama }}</td>
                     <td>{{ $i->qty }}</td>
                     <td>{{ $i->tanggal }}</td>
                     <td>
@@ -87,9 +85,9 @@
                     </tbody>
                 @endforeach
             </table>
-        </div>
+        </div> --}}
         <!-- /.box-body -->
-    </div>
+    {{-- </div> --}}
 
     @include('product_masuk.form')
 
@@ -161,7 +159,7 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'products_name', name: 'products_name'},
-                {data: 'supplier_name', name: 'supplier_name'},
+                {data: 'products_number', name: 'products_number'},
                 {data: 'qty', name: 'qty'},
                 {data: 'tanggal', name: 'tanggal'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}

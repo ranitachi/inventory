@@ -22,7 +22,7 @@
 
         <!-- /.box-header -->
         <div class="box-body">
-            <table id="categories-table" class="table table-striped">
+            <table id="categories-table" class="table table-striped table-bordered">
                 <thead>
                 <tr>
                     <th>ID</th>

@@ -537,6 +537,7 @@ class ComposerStaticInitb65a1218caff2ec028099378424403f7
         'App\\Exports\\ExportProdukMasuk' => __DIR__ . '/../..' . '/app/Exports/ExportProdukMasuk.php',
         'App\\Exports\\ExportSales' => __DIR__ . '/../..' . '/app/Exports/ExportSales.php',
         'App\\Exports\\ExportSuppliers' => __DIR__ . '/../..' . '/app/Exports/ExportSuppliers.php',
+        'App\\Http\\Controllers\\ApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
