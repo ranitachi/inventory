@@ -39,8 +39,8 @@ class ApiController extends Controller
         {
             $insert=new User;
             $insert->name=$nama;
-            $insert->email=$email;
-            $insert->telepon=$telepon;
+            $insert->email=str_replace('Email : ','',$email);
+            $insert->telepon=str_replace('No.HP : ','',$telepon);
             $insert->role='staff';
             $insert->password=bcrypt($telepon);
             $insert->save();
