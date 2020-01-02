@@ -170,7 +170,7 @@ class ProductController extends Controller
 
         return Datatables::of($product)
             ->addColumn('category_name', function ($product){
-                return $product->category->name;
+                return (isset($product->category->name) ? $product->category->name : '-');
             })
             ->addColumn('show_photo', function($product){
                 if ($product->image == NULL){
