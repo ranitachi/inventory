@@ -86,6 +86,7 @@ class ApiController extends Controller
                 $prd=new Product;
                 $prd->category_id=0;      
                 $prd->nama=$product_name;      
+                $prd->product_number=$product_number;      
                 $prd->vendor=$vendor;      
                 $prd->qty=$jumlah;      
                 $prd->save();      
