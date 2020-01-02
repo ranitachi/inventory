@@ -103,6 +103,7 @@ class ApiController extends Controller
             $insert->deskripsi=$deskripsi;
             $insert->order_ref=$order_ref;
             $insert->received_by=$nama;
+            $insert->serial_number=$sn;
             $insert->save();
 
 
@@ -128,6 +129,7 @@ class ApiController extends Controller
         $deskripsi = $request->deskripsi;
         $order_ref = $request->order_ref;
         $jumlah = (int)$request->jumlah;
+        $sn = (int)$request->sn;
 
         $cek=User::where('name',$nama)->first();
         if($cek)
@@ -148,6 +150,7 @@ class ApiController extends Controller
                 $insert->deskripsi=$deskripsi;
                 $insert->order_ref=$order_ref;
                 $insert->received_by=$nama;
+                $insert->serial_number=$sn;
                 $insert->save();
 
 
