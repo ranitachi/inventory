@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('getuserbyname','ApiController@getuserbyname');
 Route::post('store-user','ApiController@store_user');
+Route::post('store-product-in','ApiController@store_product_in');
