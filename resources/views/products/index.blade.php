@@ -23,7 +23,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Product Number</th>
-                    <th>Name</th>
+                    <th>Description</th>
                     <th>Vendor</th>
                     <th>QTY</th>
                     <th>Image</th>
