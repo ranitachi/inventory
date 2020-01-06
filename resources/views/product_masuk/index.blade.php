@@ -35,7 +35,8 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Products Name</th>
+                    <th>Description</th>
+                    <th>Serial Number</th>
                     <th>Products Number</th>
                     <th>QTY</th>
                     <th>Tanggal Masuk</th>
@@ -159,6 +160,7 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'products_name', name: 'products_name'},
+                {data: 'serial_number', name: 'serial_number'},
                 {data: 'products_number', name: 'products_number'},
                 {data: 'qty', name: 'qty'},
                 {data: 'tanggal', name: 'tanggal'},
