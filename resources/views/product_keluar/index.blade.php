@@ -33,7 +33,7 @@
                     <th>Products</th>
                     {{-- <th>Customer</th> --}}
                     <th>QTY</th>
-                    <th>Tanggal Pembelian</th>
+                    <th>Tanggal</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -74,22 +74,7 @@
     {{-- Validator --}}
     <script src="{{ asset('assets/validator/validator.min.js') }}"></script>
 
-    <script>
-    $(function () {
-    // $('#items-table').DataTable()
-    $('#invoice').DataTable({
-    'paging'      : true,
-    'lengthChange': false,
-    'searching'   : false,
-    'ordering'    : true,
-    'info'        : true,
-    'autoWidth'   : false,
-    'processing'  : true,
-    // 'serverSide'  : true
-    })
-    })
-    </script>
-
+   
     <script>
         $(function () {
 
