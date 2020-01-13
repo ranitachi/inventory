@@ -154,6 +154,12 @@ class ProductMasukController extends Controller
             ->addColumn('products_number', function ($product){
                 return $product->product->product_number;
             })
+            ->addColumn('penerima', function ($product){
+                return $product->received_by;
+            })
+            ->addColumn('order_ref', function ($product){
+                return $product->order_ref;
+            })
             ->addColumn('action', function($product){
                 // return '<a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i> Show</a> ' .
                 return
