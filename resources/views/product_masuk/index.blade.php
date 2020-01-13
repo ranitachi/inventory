@@ -38,8 +38,10 @@
                     <th>Description</th>
                     <th>Serial Number</th>
                     <th>Products Number</th>
+                    <th>Order Ref</th>
                     <th>QTY</th>
                     <th>Tanggal Masuk</th>
+                    <th>Penerima</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -162,8 +164,10 @@
                 {data: 'products_name', name: 'products_name'},
                 {data: 'serial_number', name: 'serial_number'},
                 {data: 'products_number', name: 'products_number'},
+                {data: 'order_ref', name: 'order_ref'},
                 {data: 'qty', name: 'qty'},
                 {data: 'tanggal', name: 'tanggal'},
+                {data: 'penerima', name: 'penerima'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
