@@ -63,4 +63,6 @@ class SiteTower extends Model
         'departement_name',
         'technical_area_name'
     ];
+
+    public $hidden = ['created_at','updated_at','deleted_at'];
 }
