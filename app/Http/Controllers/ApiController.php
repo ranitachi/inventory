@@ -179,7 +179,7 @@ class ApiController extends Controller
         
         // $rawData = file_get_contents($request->all());
         $postedJson = $request->all();
-        return $postedJson;
+        // return $postedJson;
         // return count($postedJson['data']);
         // return $postedJson['data'][0]['site_id'];
         try{
