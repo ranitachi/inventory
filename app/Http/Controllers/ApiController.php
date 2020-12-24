@@ -176,13 +176,15 @@ class ApiController extends Controller
     
     public function store_tower(Request $request)
     {
+        
         // $rawData = file_get_contents($request->all());
         $postedJson = $request->all();
+        return $postedJson;
         // return count($postedJson['data']);
         // return $postedJson['data'][0]['site_id'];
         try{
             // return $pos
-            DB::beginTransaction();
+            // DB::beginTransaction();
             $status = 1;
             $data = [];
             if(count($postedJson['data']) != 0)
@@ -202,7 +204,7 @@ class ApiController extends Controller
                         $data[] = $val;
                     }
                 }
-                DB::commit();
+                // DB::commit();
     
                 if($status = 0)
                 {
@@ -221,7 +223,7 @@ class ApiController extends Controller
             }
         }catch(Exception $ex)
                 {
-                    DB::rollback();
+                    // DB::rollback();
                     return response()->json([
                         'status'=>400,
                         'message' => array('message'=>'Data Tidak Tersimpan Dalam Database')
