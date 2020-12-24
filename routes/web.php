@@ -71,7 +71,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/exportProductMasuk/{id}','ProductMasukController@exportProductMasuk')->name('exportPDF.productMasuk');
 
     Route::resource('data-tower','SiteTowerController');
-    Route::get('/apiTowers','SiteTowerController@apiTowers')->name('api.towers');
+    Route::get('/overdue','SiteTowerController@overdue')->name('data-tower.overdue');
+    Route::get('/expired','SiteTowerController@expired')->name('data-tower.expired');
+    Route::get('/apiTowers/{jenis}','SiteTowerController@apiTowers')->name('api.towers');
     Route::post('/importTowers','SiteTowerController@ImportExcel')->name('import.towers');
     Route::get('/exportTowerssAll','SiteTowerController@exportTowersAll')->name('exportPDF.towersAll');
     Route::get('/exportTowersAllExcel','SiteTowerController@exportExcel')->name('exportExcel.towersAll');

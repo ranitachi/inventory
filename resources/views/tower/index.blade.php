@@ -61,7 +61,7 @@
         var table = $('#sales-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('api.towers') }}",
+            ajax: "{{ route('api.towers',$jenis) }}",
             columns: [
                 {data: 'site_id', name: 'site_id'},
                 {data: 'site_name', name: 'site_name'},
@@ -183,5 +183,9 @@
             });
         });
     </script>
-
+    <style>
+        td{
+            font-size:12px !important;
+        }
+    </style>
 @endsection

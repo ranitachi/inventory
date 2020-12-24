@@ -130,6 +130,34 @@
             <a href="{{ route('productsOut.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+            <div class="inner">
+                <h3>{{ \App\SiteTower::where('akhir_periode_kontrak','<',date('Y-m-d'))->count()  }}</h3>
+
+                <p>Overdue Tower Contract</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="{{ route('data-tower.overdue') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-primary">
+            <div class="inner">
+                <h3>{{ \App\SiteTower::whereRaw('akhir_periode_kontrak BETWEEN curdate() AND curdate() + INTERVAL 3 MONTH')->count()  }}</h3>
+
+                <p>Will Expire in 3 Month</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="{{ route('data-tower.expired') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
     <!-- ./col -->
 </div>
 
