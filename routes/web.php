@@ -12,10 +12,15 @@
 */
 
 Route::get('/', function () {
+    if(Auth::check())
+        return redirect('home');
+        
     return view('auth.login');
 });
 
-Auth::routes();
+Auth::routes([
+    'register'=>false
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -64,5 +69,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/exportProductMasukAll','ProductMasukController@exportProductMasukAll')->name('exportPDF.productMasukAll');
     Route::get('/exportProductMasukAllExcel','ProductMasukController@exportExcel')->name('exportExcel.productMasukAll');
     Route::get('/exportProductMasuk/{id}','ProductMasukController@exportProductMasuk')->name('exportPDF.productMasuk');
+
+    Route::resource('data-tower','SiteTowerController');
+    Route::get('/apiTowers','SiteTowerController@apiTowers')->name('api.towers');
+    Route::post('/importTowers','SiteTowerController@ImportExcel')->name('import.towers');
+    Route::get('/exportTowerssAll','SiteTowerController@exportTowersAll')->name('exportPDF.towersAll');
+    Route::get('/exportTowersAllExcel','SiteTowerController@exportExcel')->name('exportExcel.towersAll');
 });
 
