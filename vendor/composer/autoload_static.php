@@ -574,6 +574,7 @@ class ComposerStaticInitb65a1218caff2ec028099378424403f7
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Sale' => __DIR__ . '/../..' . '/app/Sale.php',
+        'App\\SiteTower' => __DIR__ . '/../..' . '/app/SiteTower.php',
         'App\\Supplier' => __DIR__ . '/../..' . '/app/Supplier.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Barryvdh\\DomPDF\\Facade' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade.php',

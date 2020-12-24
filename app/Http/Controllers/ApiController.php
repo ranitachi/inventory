@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use DB;
 use App\User;
+use App\Product;
+use App\SiteTower;
 use App\Product_Masuk;
 use App\Product_Keluar;
-use App\Product;
+use Illuminate\Http\Request;
+
 class ApiController extends Controller
 {
     public function getuserbyname(Request $request)
@@ -170,5 +172,61 @@ class ApiController extends Controller
                 'data' => array('message'=>'Akun Anda Belum Terdaftar, Silahkan Daftar Terlebih Dahulu dengan ketik ')
             ]);
         }
+    }
+    
+    public function store_tower(Request $request)
+    {
+        // $rawData = file_get_contents($request->all());
+        $postedJson = $request->all();
+        // return count($postedJson['data']);
+        // return $postedJson['data'][0]['site_id'];
+        try{
+            // return $pos
+            DB::beginTransaction();
+            $status = 1;
+            $data = [];
+            if(count($postedJson['data']) != 0)
+            {
+                foreach($postedJson['data'] as $index =>$value)
+                {
+                    $val = json_decode(json_encode($value), true);
+                    $site_id = $value['site_id'];
+                    $cek=SiteTower::where('site_id',$site_id)->first();
+                    if(!$cek)
+                    {
+                        $simpan = SiteTower::create($val);    
+                    }
+                    else
+                    {
+                        $status = 0;
+                        $data[] = $val;
+                    }
+                }
+                DB::commit();
+    
+                if($status = 0)
+                {
+                    return response()->json([
+                        'status'=>400,
+                        'message' => array('message'=>'Data Telah Tersimpan Dalam Database Sebelumnya'),
+                        'data' => $data
+                    ]);
+                }
+                else{
+                    return response()->json([
+                        'status'=>200,
+                        'message' => array('message'=>'Data Telah Tersimpan Dalam Database')
+                    ]);
+                }
+            }
+        }catch(Exception $ex)
+                {
+                    DB::rollback();
+                    return response()->json([
+                        'status'=>400,
+                        'message' => array('message'=>'Data Tidak Tersimpan Dalam Database')
+                    ]);
+                }
+        
     }
 }
