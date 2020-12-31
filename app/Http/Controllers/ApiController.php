@@ -192,7 +192,7 @@ class ApiController extends Controller
                 foreach($postedJson['data'] as $index =>$value)
                 {
                     $val = json_decode(json_encode($value), true);
-                    $site_id = $value['site_id'];
+                    $site_id = $val['site_id'];
                     $cek=SiteTower::where('site_id',$site_id)->first();
                     if(!$cek)
                     {
@@ -201,6 +201,8 @@ class ApiController extends Controller
                     else
                     {
                         $status = 0;
+                        SiteTower::where('site_id',$site_id)->update($val);
+
                         $data[] = $val;
                     }
                 }
