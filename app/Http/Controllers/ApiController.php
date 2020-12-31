@@ -8,7 +8,7 @@ use App\SiteTower;
 use App\Product_Masuk;
 use App\Product_Keluar;
 use Illuminate\Http\Request;
-
+use Storage;
 class ApiController extends Controller
 {
     public function getuserbyname(Request $request)
@@ -174,7 +174,7 @@ class ApiController extends Controller
         }
     }
     
-    public function store_tower(Request $request)
+    public function store_tower(Request $request,$halaman)
     {
         
         // $rawData = file_get_contents($request->all());
@@ -189,23 +189,24 @@ class ApiController extends Controller
             $data = [];
             if(count($postedJson['data']) != 0)
             {
-                foreach($postedJson['data'] as $index =>$value)
-                {
-                    $val = json_decode(json_encode($value), true);
-                    $site_id = $val['site_id'];
-                    $cek=SiteTower::where('site_id',$site_id)->first();
-                    if(!$cek)
-                    {
-                        $simpan = SiteTower::create($val);    
-                    }
-                    else
-                    {
-                        $status = 0;
-                        SiteTower::where('site_id',$site_id)->update($val);
+                Storage::put('page-'.$halaman.'.txt', json_encode($postedJson['data']));
+                // foreach($postedJson['data'] as $index =>$value)
+                // {
+                //     $val = json_decode(json_encode($value), true);
+                //     $site_id = $val['site_id'];
+                //     $cek=SiteTower::where('site_id',$site_id)->first();
+                //     if(!$cek)
+                //     {
+                //         $simpan = SiteTower::create($val);    
+                //     }
+                //     else
+                //     {
+                //         $status = 0;
+                //         SiteTower::where('site_id',$site_id)->update($val);
 
-                        $data[] = $val;
-                    }
-                }
+                //         $data[] = $val;
+                //     }
+                // }
                 // DB::commit();
     
                 if($status = 0)
