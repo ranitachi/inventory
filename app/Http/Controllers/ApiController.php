@@ -189,7 +189,7 @@ class ApiController extends Controller
             $data = [];
             if(count($postedJson['data']) != 0)
             {
-                Storage::put('page-'.$halaman.'.txt', json_encode($postedJson['data']));
+                Storage::put('public/page-'.$halaman.'.txt', json_encode($postedJson['data']));
                 // foreach($postedJson['data'] as $index =>$value)
                 // {
                 //     $val = json_decode(json_encode($value), true);
