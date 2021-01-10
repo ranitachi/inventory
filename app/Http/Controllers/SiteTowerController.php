@@ -84,8 +84,21 @@ class SiteTowerController extends Controller
             })
             ->rawColumns(['awal_periode_kontrak','akhir_periode_kontrak','status','action'])->make(true);
     }
-
-    public function getdata()
+    public function list_sync()
+    {
+        $path = public_path().'/storage';
+        $files = scandir($path);
+        $file = array();
+        foreach($files as $index => $value)
+        {
+            if($value!='.' && $value!='..' && $value!='.DS_Store')
+            {
+                $file[]=$value;
+            }
+        }
+        return view('tower.list-sync',compact('file'));
+    }
+    public function getdata($file)
     {
         // $files = File::files(public_path().'/storage');
         $path = public_path().'/storage';
@@ -93,10 +106,10 @@ class SiteTowerController extends Controller
         $get = array();
         foreach($files as $index => $value)
         {
-            if($value!='.' && $value!='..')
+            if($value!='.' && $value!='..' && $value!='.DS_Store')
             {
-                // if($value=='page-1.txt')
-                // {
+                if($value==$file)
+                {
                     $json_data = file_get_contents($path.'/'.$value);
                     // $json_data = preg_replace('/[^\00-\255]+/u', '',$json_data);
                     // $json_data = str_replace(chr(194),"",$json_data);
@@ -130,7 +143,7 @@ class SiteTowerController extends Controller
                             // $get[] = 
                         }
                     }
-                // }
+                }
             }
         }
         // return count($get);

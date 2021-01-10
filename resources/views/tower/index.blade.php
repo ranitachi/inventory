@@ -14,7 +14,7 @@
         </div>
 
         <div class="box-header">
-            <a href="{{ url('tower/getdata') }}" class="btn btn-primary" ><i class="fa fa-refresh"></i> Sync Data Tower</a>
+            <a href="{{ url('list-sync') }}" class="btn btn-primary" ><i class="fa fa-refresh"></i> Sync Data Tower</a>
             {{-- <a href="{{ route('exportPDF.towersAll') }}" class="btn btn-danger">Export PDF</a>
             <a href="{{ route('exportExcel.towersAll') }}" class="btn btn-success">Export Excel</a> --}}
         </div>
