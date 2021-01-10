@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use PDF;
+use File;
 use Excel;
 use App\SiteTower;
 use App\Helpers\FuncHelper;
@@ -77,10 +78,68 @@ class SiteTowerController extends Controller
                 }
             })
             ->addColumn('action', function($tower){
-                return '<a href="'.route('data-tower.show',$tower->id).'" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i></a> ' .
+                return '<a href="'.route('data-tower.show',$tower->id).'" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i></a> ';
                     // '<a onclick="editForm('. $tower->id .')" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i></a> ' .
-                    '<a onclick="deleteData('. $tower->id .')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>';
+                    // '<a onclick="deleteData('. $tower->id .')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>';
             })
             ->rawColumns(['awal_periode_kontrak','akhir_periode_kontrak','status','action'])->make(true);
     }
+
+    public function getdata()
+    {
+        // $files = File::files(public_path().'/storage');
+        $path = public_path().'/storage';
+        $files = scandir($path);
+        $get = array();
+        foreach($files as $index => $value)
+        {
+            if($value!='.' && $value!='..')
+            {
+                // if($value=='page-1.txt')
+                // {
+                    $json_data = file_get_contents($path.'/'.$value);
+                    // $json_data = preg_replace('/[^\00-\255]+/u', '',$json_data);
+                    // $json_data = str_replace(chr(194),"",$json_data);
+                    $json_data = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','',$json_data);
+                    $json_str = json_decode($json_data, true);
+                    $chunked = array_chunk($json_str, 50);
+                    foreach($chunked as $idx_c => $val_c)
+                    {
+                        foreach($val_c as $idx => $val)
+                        {
+                            $site_id = $val['site_id'];
+    
+                            $cek=SiteTower::where('site_id',$site_id)->first();
+                            if(!$cek)
+                            {
+                                $simpan = SiteTower::create($val);  
+                                if($simpan)
+                                    $get[] = $site_id.' Sukses Simpan';  
+                                else
+                                    $get[] = $site_id.' Gagal Simpan';
+                            }
+                            else
+                            {
+                                $update = SiteTower::where('site_id',$site_id)->update($val);
+                                if($update)
+                                    $get[] = $site_id.' Sukses Update';  
+                                else
+                                    $get[] = $site_id.' Gagal Update';
+                            }
+    
+                            // $get[] = 
+                        }
+                    }
+                // }
+            }
+        }
+        // return count($get);
+        return redirect('data-tower-success')->with('success','Data Tower Berhasil Di Sinkronisasi Ulang');    
+    }
+
+    public function success()
+    {
+        return view('tower.success');
+    }
+    
 }

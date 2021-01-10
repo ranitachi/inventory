@@ -14,7 +14,7 @@
         </div>
 
         <div class="box-header">
-            <a onclick="syncTower()" class="btn btn-primary" ><i class="fa fa-refresh"></i> Sync Data Tower</a>
+            <a href="{{ url('tower/getdata') }}" class="btn btn-primary" ><i class="fa fa-refresh"></i> Sync Data Tower</a>
             {{-- <a href="{{ route('exportPDF.towersAll') }}" class="btn btn-danger">Export PDF</a>
             <a href="{{ route('exportExcel.towersAll') }}" class="btn btn-success">Export Excel</a> --}}
         </div>
@@ -58,6 +58,18 @@
     <script src="{{ asset('assets/validator/validator.min.js') }}"></script>
 
     <script type="text/javascript">
+
+        var msg = '{{ Session::get("success") }}';
+        if(msg!='')
+        {
+            swal({
+                title: 'Success!',
+                text: msg,
+                type: 'success',
+                timer: '1500'
+            })
+        }
+
         var table = $('#sales-table').DataTable({
             processing: true,
             serverSide: true,
