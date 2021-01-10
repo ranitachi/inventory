@@ -102,7 +102,7 @@ class SiteTowerController extends Controller
                     // $json_data = str_replace(chr(194),"",$json_data);
                     $json_data = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','',$json_data);
                     $json_str = json_decode($json_data, true);
-                    $chunked = array_chunk($json_str, 50);
+                    $chunked = array_chunk($json_str, 100);
                     foreach($chunked as $idx_c => $val_c)
                     {
                         foreach($val_c as $idx => $val)
