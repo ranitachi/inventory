@@ -82,3 +82,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/exportTowersAllExcel','SiteTowerController@exportExcel')->name('exportExcel.towersAll');
 });
 
+
+Route::get('/updated-activity', 'TelegramBotController@updatedActivity');
+Route::get('/send-message', 'TelegramBotController@storeMessage');
+
+Route::get('/site-expired', 'SiteTowerController@site_expired');
+Route::get('/site-overdue', 'SiteTowerController@site_overdue');

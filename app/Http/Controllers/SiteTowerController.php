@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Exports\ExportSuppliers;
 use App\Imports\SuppliersImport;
 use Yajra\DataTables\DataTables;
+use App\Exports\ExportSiteExpired;
+use App\Exports\ExportSiteOverdue;
 
 class SiteTowerController extends Controller
 {
@@ -155,4 +157,12 @@ class SiteTowerController extends Controller
         return view('tower.success');
     }
     
+    public function site_expired()
+    {
+        return (new ExportSiteExpired())->download('site-expired.xlsx');
+    }
+    public function site_overdue()
+    {
+        return (new ExportSiteOverdue())->download('site-overdue.xlsx');
+    }
 }

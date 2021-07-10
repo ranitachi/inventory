@@ -181,7 +181,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        TelegramNotifications\TelegramServiceProvider::class,
+        Telegram\Bot\Laravel\TelegramServiceProvider::class
 
     ],
 
@@ -236,7 +237,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
-        
+        'Telegram' => Telegram\Bot\Laravel\Facades\Telegram::class,
 
     ],
 
