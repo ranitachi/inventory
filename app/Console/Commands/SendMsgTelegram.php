@@ -48,8 +48,9 @@ class SendMsgTelegram extends Command
 
         $text = "<b>Rekapitulasi Data Site : </b>\n<i>update : $time Wib</i>\n\nJumlah Expired Dalam 3 Bulan : <b><u>$site_expired Site</u></b>\nJumlah Overdue : <b><u>$site_overdue Site</u></b>\n\n\nLink Unduh Excel : \nExpired : $link_expired\nOverdue : $link_overdue";
  
+        // 'chat_id' => env('TELEGRAM_CHANNEL_ID', '770213227'),
         $send = Telegram::sendMessage([
-            'chat_id' => env('TELEGRAM_CHANNEL_ID', '770213227'),
+            'chat_id' => env('TELEGRAM_CHANNEL_ID', '221836329'),
             'parse_mode' => 'HTML',
             'text' => $text
         ]);
