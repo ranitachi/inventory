@@ -31,6 +31,12 @@ class TelegramBotController extends Controller
             'parse_mode' => 'HTML',
             'text' => $text
         ]);
+
+        $send = Telegram::sendMessage([
+            'chat_id' => env('TELEGRAM_CHANNEL_ID', '221836329'),
+            'parse_mode' => 'HTML',
+            'text' => $text
+        ]);
  
         return $send;
         // return redirect()->back();
