@@ -54,5 +54,10 @@ class SendMsgTelegram extends Command
             'parse_mode' => 'HTML',
             'text' => $text
         ]);
+        $send = Telegram::sendMessage([
+            'chat_id' => env('TELEGRAM_CHANNEL_ID', '770213227'),
+            'parse_mode' => 'HTML',
+            'text' => $text
+        ]);
     }
 }
